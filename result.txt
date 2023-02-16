@@ -1,4 +1,56 @@
-Initial array: 1 2 3 4 
+Initial array: 123123 21 3232 232 3223 
 
-1 2 3 4 
-Number of iterations: 0
+[3;46;30mrra[0m		
+Vector A: 21 3232 232 3223 123123 
+Vector B: empty
+
+pb
+Vector A: 3232 232 3223 123123 
+Vector B: 21 
+
+[3;46;30mrra[0m		
+Vector A: 232 3223 123123 3232 
+Vector B: 21 
+
+pb
+Vector A: 3223 123123 3232 
+Vector B: 232 21 
+
+pb
+Vector A: 123123 3232 
+Vector B: 3223 232 21 
+
+[3;46;30mrra[0m		
+Vector A: 3232 123123 
+Vector B: 3223 232 21 
+
+pb
+Vector A: 123123 
+Vector B: 3232 3223 232 21 
+
+pb
+Vector A: empty
+Vector B: 123123 3232 3223 232 21 
+
+pb
+Vector A: 123123 
+Vector B: 3232 3223 232 21 
+
+pb
+Vector A: 3232 123123 
+Vector B: 3223 232 21 
+
+pb
+Vector A: 3223 3232 123123 
+Vector B: 232 21 
+
+pb
+Vector A: 232 3223 3232 123123 
+Vector B: 21 
+
+pb
+Vector A: 21 232 3223 3232 123123 
+Vector B: empty
+
+21 232 3223 3232 123123 
+Number of iterations: 13

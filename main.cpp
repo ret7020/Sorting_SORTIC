@@ -1,5 +1,10 @@
 #include "sortic.h"
 
+string colored(string text){
+    // It works on Linux, I don't know(and don't want to know), what about windows
+    return "\033[3;46;30m" + text + "\033[0m\t\t";
+}
+
 void printArray(const vector<int> arr, ofstream &inputToFile){
     for(long long i = 0; i < arr.size(); i++){
         cout << arr[i] << " ";
@@ -10,10 +15,9 @@ void printArray(const vector<int> arr, ofstream &inputToFile){
 }
 
 void printStep(const vector<int> &a, const vector<int> &b, string functionName, ofstream &outputToFile){
-    //SetConsoleTextAttribute(Console, FOREGROUND_INTENSITY | FOREGROUND_GREEN);
+    if (functionName == "rra") functionName = colored(functionName);
     cout << functionName << endl;
     outputToFile << functionName << endl;
-    //SetConsoleTextAttribute(Console, 15);
     cout << "Vector A: ";
     outputToFile << "Vector A: ";
     if (a.size() > 0)
@@ -34,27 +38,18 @@ void printStep(const vector<int> &a, const vector<int> &b, string functionName, 
     cout << endl;
 }
 
-void optionYes(bool &WantToRead, vector<int> &a){
+void fileBasedArrayFill(vector<int> &a){
     string line;
-    WantToRead = true;
     cout << "Enter name of the file to read from: ";
-    cin >> line;
-    line = "/home/stephan/Progs/CPP/SorticProjectFinal/test.txt";
+    // Make getline works inside switch-case
+    cin.clear();
+    cin.ignore();
+    getline(cin, line);
     ifstream inputFromFile;
-    //line = filePath(line);
-    line = "ads";
     inputFromFile.open(line);
-    /*while(!inputFromFile){
-        cout << "There is no such file!" << endl << "Try again: " << endl;
-        cin >> line;
-        inputFromFile.open(filePath(line));
-    }*/
     readFromFile(inputFromFile, a);
-    //SetConsoleTextAttribute(Console, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-    cout << "File found!" << endl;
 }
 
-void fileBasedArrayFill(vector<int> &a){}
 
 void multiLineArrayFill(ofstream &outputToFile, vector<int> &a){
     cout << "Enter numbers of array. ! - finish input\n";
@@ -85,19 +80,6 @@ void split(string str, string token, vector<int> &a){
 }
 
 
-//SWAP
-//sa(sb) swap first 2 of a(b)
-//ss
-
-//PUT TO A, PUT TO B
-//pa(a, b) delete first of b and put it to 
-//
-//pb(b, a)
-
-//ra(a), rb(b) shift elements of a vector to the one right
-//rr
-//rra(a), rrb(b) shift element of a vector to the one left
-//rrr
 int main(int argc, char** argv){
     //string inp;
     //getline(cin, inp);
@@ -121,9 +103,10 @@ int main(int argc, char** argv){
                 cin.ignore();
                 getline(cin, inp);
                 inlineBasedArrayFill(inp, a);
-            } 
+            }
+            break;
         case 2:
-            
+            fileBasedArrayFill(a);
             break;
         case 3:
             inlineBasedArrayFill(argv[1], a);

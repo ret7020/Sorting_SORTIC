@@ -22,7 +22,7 @@ void rra(vector<int> &a);
 void rrb(vector<int> &b);
 void rrr(vector<int> &a, vector<int> &b);
 
-
+// Trash
 void readFromFile(ifstream &inputFromFile, vector<int> &a);
 bool isSorted(vector<int> arr);
 int minNumIndex(vector<int> arr);
@@ -35,4 +35,5 @@ void fileBasedArrayFill(vector<int> &a);
 void multiLineArrayFill(ofstream &outputToFile, vector<int> &a);
 void inlineBasedArrayFill(string inp, vector<int> &a);
 void split(string str, string token, vector<int> &a); 
+string colored(string text);
 #endif // SORTIC_H_INCLUDED
